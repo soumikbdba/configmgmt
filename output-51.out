@@ -1,0 +1,86 @@
+root@ip-172-31-255-51:/sb# python3 config_management.py
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+68 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+php is already the newest version (1:7.2+60ubuntu1).
+apache2 is already the newest version (2.4.29-1ubuntu4.27).
+python3-pip is already the newest version (9.0.1-2.3~ubuntu1.18.04.8).
+The following packages were automatically installed and are no longer required:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-geoip libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter
+  libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6 libxpm4 nginx-common nginx-core
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 68 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  nginx
+0 upgraded, 1 newly installed, 0 to remove and 68 not upgraded.
+Need to get 0 B/3596 B of archives.
+After this operation, 44.0 kB of additional disk space will be used.
+Selecting previously unselected package nginx.
+(Reading database ... 93175 files and directories currently installed.)
+Preparing to unpack .../nginx_1.14.0-0ubuntu1.11_all.deb ...
+Unpacking nginx (1.14.0-0ubuntu1.11) ...
+Setting up nginx (1.14.0-0ubuntu1.11) ...
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0
+  libjpeg-turbo8 libjpeg8 libnginx-mod-http-geoip
+  libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter
+  libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6 libxpm4 nginx-common
+  nginx-core
+Use 'sudo apt autoremove' to remove them.
+The following packages will be REMOVED:
+  nginx
+0 upgraded, 0 newly installed, 1 to remove and 68 not upgraded.
+After this operation, 44.0 kB disk space will be freed.
+(Reading database ... 93178 files and directories currently installed.)
+Removing nginx (1.14.0-0ubuntu1.11) ...
+
+root@ip-172-31-255-51:/sb# curl -sv "http://ip-172-31-255-51"
+* Rebuilt URL to: http://ip-172-31-255-51/
+*   Trying 172.31.255.51...
+* TCP_NODELAY set
+* Connected to ip-172-31-255-51 (172.31.255.51) port 80 (#0)
+> GET / HTTP/1.1
+> Host: ip-172-31-255-51
+> User-Agent: curl/7.58.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Tue, 02 Jan 2024 14:23:45 GMT
+< Server: Apache/2.4.29 (Ubuntu)
+< Content-Length: 13
+< Content-Type: text/html; charset=UTF-8
+<
+* Connection #0 to host ip-172-31-255-51 left intact
+
+root@ip-172-31-255-51:/sb# curl -sv "http://localhost"
+* Rebuilt URL to: http://localhost/
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 80 (#0)
+> GET / HTTP/1.1
+> Host: localhost
+> User-Agent: curl/7.58.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Tue, 02 Jan 2024 14:26:55 GMT
+< Server: Apache/2.4.29 (Ubuntu)
+< Content-Length: 13
+< Content-Type: text/html; charset=UTF-8
+<
+* Connection #0 to host localhost left intact
